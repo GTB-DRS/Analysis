@@ -14,7 +14,7 @@ To begin the analysis of the simulated dataset in R, download “R_Code_VS1.R”
 The results of this analysis are summarised in “Results R code VS1.ppt”. A stand-alone script to produce a plot visualising 
 the size of clusters - in case of surveys involving fixed cluster size - is also provided in “ClusterSizeVisualisation_in_R_VS1.R”.
 
-To begin the analysis of the simulated dataset in Stata, download “Stata_dofile_V1.do” and follow the instructions. 
+To begin the analysis of the simulated dataset in Stata, download “Stata_dofile.do” and follow the instructions. 
 The results of this analysis are summarised in “Powerpoint_Patient_Enrollment_Flowchart_vs1.ppt”, “Stata_analysis_results_v1.xlsx” 
 and “Stata_age_sex_distribution_v1.png”. 
 
