@@ -1,11 +1,11 @@
 
-////////////////////////* SAMPLE STATA DOFILE FOR ANALYSIS OF DATA FROM ANTI-TB DRUG RESISTANCE SURVEYS, MAY 2021 *//////////////////////
+////////////////////////* SAMPLE STATA DOFILE FOR ANALYSIS OF DATA FROM ANTI-TB DRUG RESISTANCE SURVEYS, UPDATED JUNE 2023 *//////////////////////
 
 /* This analysis is based on a cluster-based survey with variable cluster size. The clusters are distributed across three different strata. Each strata has its own target sample size. */
 /* Clusters in the same strata enrol consecutive patients over the same period of time until the strata sample size is met. */
 
 /* Set working drive */
-cd "C:\Users\deanan\OneDrive - World Health Organization\Documents\dr surveys\data analysis tools\sample data and dofile\may 2021" /* change working drive to match yours */
+cd "C:\....\.....\..........." /* change working drive to match yours */
 
 
 /******************************************************Data cleaning*************************************************************************/
@@ -449,12 +449,12 @@ mi unset
 svyset cluster [pw=pweight_imp]
 bysort _mj: tab rifXpertPdst, m /* compare the number of imputed cases across datasets */
 
-mim, category(fit) storebv: logit rifXpertPdst  if treat_hist==0 [pw=pweight_imp] /* for new cases */
+mim, category(fit) storebv: svy: logit rifXpertPdst  if treat_hist==0 [pw=pweight_imp] /* for new cases */
 di invlogit(_b[_cons])
 di invlogit(_b[_cons] - invnormal(0.975)*_se[_cons])
 di invlogit(_b[_cons] + invnormal(0.975)*_se[_cons])
 
-mim, category(fit) storebv: logit rifXpertPdst  if treat_hist==1 [pw=pweight_imp] /* for previously treated cases */
+mim, category(fit) storebv: svy: logit rifXpertPdst  if treat_hist==1 [pw=pweight_imp] /* for previously treated cases */
 di invlogit(_b[_cons])
 di invlogit(_b[_cons] - invnormal(0.975)*_se[_cons])
 di invlogit(_b[_cons] + invnormal(0.975)*_se[_cons])
